@@ -1,10 +1,7 @@
-%h1 Edit Medical History
+%h3 Edit Medical History
 
 = form_for @medical_history, url: "/medical_histories/#{@medical_history.id}" do |f|
 	= render 'form', f: f
-
 %br
 %br
-= link_to 'Show', medical_history_path
-\|
 = link_to 'Back', medical_histories_path

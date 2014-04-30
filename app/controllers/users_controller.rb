@@ -34,15 +34,12 @@ class UsersController < ApplicationController
 
 	def destroy
     @user = User.find(params[:id])
-    if @user.destroy
+    @user.destroy
       redirect_to users_path
-    else
-      redirect_to user_path(@user)
-    end
   end
 
   def search
-    @users = User.search params[:search]
+    @search = User.find(params[:search])
   end
 
   private

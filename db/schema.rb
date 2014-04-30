@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140430012846) do
+ActiveRecord::Schema.define(version: 20140430042430) do
 
   create_table "medical_histories", force: true do |t|
     t.boolean  "measles",               default: false

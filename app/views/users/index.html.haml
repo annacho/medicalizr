@@ -1,32 +1,79 @@
-%h1 All Users
+.container
+	%h1 Patient Records
 
-- @users.each do |u|
-	User Name:
-	= u.name :name
-	Email:
-	= email_field :email
-	SSN:
-	= text_field :ssn
-	Address:
-	= text_field :address
-	Birthday:
-	= date_field :birthday
-	Phone1:
-	= telephone_field :phone1
-	Phone2:
-	= telephone_field :phone2
-	Password:
-	= text_field :password
-	Credit Card:
-	= text_field :credit_card
-	%br
-	%br
-	= link_to 'Show', user_path(user)
-	= link_to 'Edit', edit_user_path(user)
-	= link_to 'Delete', user_path(user), :method => :delete, :data => { :confirm => 'Are you sure?' }
-%br
+	/ = Users Table = /
+	%table.table.table-striped
+		
+		/ = Table Header = /
+		%thead
+			%tr
+				%th Name
+				%th Email
+				%th SSN
+				%th Address
+				%th Birthday
+				%th Phone
+				/ %th Phone (Alt)
+				%th Password
+				%th Credit Card
+				%th Update
+				%th Delete
+		
+		/ = Table Rows = /
+		%tbody
+			- @users.each do |u|
+				%tr
+					%td= u.name
+					%td= u.email
+					%td= u.ssn
+					%td= u.address
+					%td= u.birthday.try(:strftime, '%m-%d-%Y')
+					%td= u.phone1
+					/ %td= u.phone2
+					%td= u.password
+					%td= u.credit_card
+					
+					/ = Edit Button = /
+					%td= link_to 'Edit', edit_user_path(u), :method => :get, :class => "button btn btn-primary"
+					
+					/ = Edit Button = /
+					%td= link_to 'Delete', users_path(u), :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => "button btn btn-danger"
 
-= button_to 'Add New User', new_user_path, method: "get"
+.container
+= link_to 'Add New User', new_user_path, method: "get"
 %br
 %br
 = button_to 'See All Users', users_path, method: "get"
+
+
+
+
+/ - @users.each do |u|
+/ 	User Name:
+/ 	= u.name
+/ 	/ Email:
+/ 	/ = email_field :email
+/ 	/ SSN:
+/ 	/ = text_field :ssn
+/ 	/ Address:
+/ 	/ = text_field :address
+/ 	/ Birthday:
+/ 	/ = date_field :birthday
+/ 	/ Phone1:
+/ 	/ = telephone_field :phone1
+/ 	/ Phone2:
+/ 	/ = telephone_field :phone2
+/ 	/ Password:
+/ 	/ = text_field :password
+/ 	/ Credit Card:
+/ 	/ = text_field :credit_card
+/ 	%br
+/ 	= link_to 'Show', user_path(u)
+/ 	= link_to 'Edit', edit_user_path(u)
+/ 	= link_to 'Delete', user_path(u), :method => :delete, :data => { :confirm => 'Are you sure?' }
+/ %br
+
+/ = button_to 'Add New User', new_user_path, method: "get"
+/ %br
+/ %br
+/ = button_to 'See All Users', users_path, method: "get"
