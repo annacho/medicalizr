@@ -1,1 +1,7 @@
-new.html.haml
+%h1 New User
+
+= form_for @new_user, url: "/users" do |f|
+	= render 'form', f: f
+
+%br
+= button_to 'Back', users_path, method: "get"

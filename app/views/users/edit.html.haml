@@ -1,1 +1,10 @@
-edit.html.haml
+%h1 Edit User
+
+= form_for @user, url: "/users/#{@user.id}" do |f|
+	= render 'form', f: f
+
+%br
+%br
+= link_to 'Show', user_path
+\|
+= link_to 'Back', users_path

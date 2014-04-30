@@ -6,9 +6,9 @@
 	Description:
 	= m.form_description
 	%br
-	= link_to "Show", medical_history
+	= link_to "Show", medical_history_path(medical_history)
 	= link_to "Edit", edit_medical_history_path(medical_history)
-	= link_to "Delete", medical_history, :method => :delete, :data => { :confirm => 'Are you sure?' }
+	= link_to "Delete", medical_history_path(medical_history), :method => :delete, :data => { :confirm => 'Are you sure?' }
 	%br
 
 = button_to 'Add New Form', new_medical_history_path, method: "get"

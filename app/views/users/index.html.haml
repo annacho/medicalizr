@@ -1,1 +1,32 @@
-index.html.haml
+%h1 All Users
+
+- @users.each do |u|
+	User Name:
+	= u.name :name
+	Email:
+	= email_field :email
+	SSN:
+	= text_field :ssn
+	Address:
+	= text_field :address
+	Birthday:
+	= date_field :birthday
+	Phone1:
+	= telephone_field :phone1
+	Phone2:
+	= telephone_field :phone2
+	Password:
+	= text_field :password
+	Credit Card:
+	= text_field :credit_card
+	%br
+	%br
+	= link_to 'Show', user_path(user)
+	= link_to 'Edit', edit_user_path(user)
+	= link_to 'Delete', user_path(user), :method => :delete, :data => { :confirm => 'Are you sure?' }
+%br
+
+= button_to 'Add New User', new_user_path, method: "get"
+%br
+%br
+= button_to 'See All Users', users_path, method: "get"

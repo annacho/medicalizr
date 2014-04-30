@@ -1,1 +1,33 @@
-show.html.haml
+%p#notice= notice
+
+%p
+  %b Name:
+  = @user.name
+%p
+  %b Email:
+  = @user.email
+%p
+  %b SSN:
+  = @user.ssn
+%p
+  %b Address:
+  = @user.address
+%p
+  %b Birthday:
+  = @user.birthday
+%p
+  %b Phone 1:
+  = @user.phone1
+%p
+  %b Phone 2:
+  = @user.phone2
+%p
+  %b Password:
+  = @user.password   
+%p
+  %b Credit Card:
+  = @user.credit_card 
+
+= link_to 'Edit', edit_user_path, method: "get"
+\|
+= link_to 'Back', users_path
