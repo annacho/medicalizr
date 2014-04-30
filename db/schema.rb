@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140429232742) do
+ActiveRecord::Schema.define(version: 20140430012846) do
 
   create_table "medical_histories", force: true do |t|
     t.boolean  "measles",               default: false
@@ -57,6 +57,9 @@ ActiveRecord::Schema.define(version: 20140429232742) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "form_id"
+    t.integer  "user_id"
+    t.string   "form_name"
+    t.string   "form_description"
   end
 
   create_table "relationships", force: true do |t|
