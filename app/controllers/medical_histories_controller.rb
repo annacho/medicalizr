@@ -29,16 +29,15 @@ class MedicalHistoriesController < ApplicationController
 		@medical_history = MedicalHistory.find(params[:id])
     if @medical_history.update_attributes(medical_history_params)
      	redirect_to medical_history_path
+    else
+      redirect_to edit_medical_history_path
     end
   end
 
 	def destroy
     @medical_history = MedicalHistory.find(params[:id])
-    if @medical_history.destroy
+    @medical_history.destroy
       redirect_to medical_histories_path
-    else
-      redirect_to medical_history_path(@medical_history)
-    end
   end
 
   def search
